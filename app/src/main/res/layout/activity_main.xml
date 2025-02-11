@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cardview_shadow_start_color"
     tools:context=".MainActivity">
 
     <EditText
@@ -63,8 +64,11 @@
         android:id="@+id/btn_calcular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#1E8E1E"
         android:hint="@string/txt_Calcular"
         android:onClick="calcular"
+        android:textColorHint="#FBFBFB"
+        android:textColorLink="#070707"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,18 +76,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.537"
+        app:rippleColor="#AB1313"
+        app:strokeColor="#1B1A1A"
         app:toggleCheckedStateOnClick="false" />
 
     <TextView
         android:id="@+id/textView_resultado"
-        android:layout_width="153dp"
-        android:layout_height="34dp"
+        android:layout_width="184dp"
+        android:layout_height="107dp"
         android:hint="@string/txt_Resultado"
-        android:lines="2"
+        android:lines="4"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.879"
+        app:layout_constraintHorizontal_bias="0.929"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.535" />
+        app:layout_constraintVertical_bias="0.584" />
 </androidx.constraintlayout.widget.ConstraintLayout>

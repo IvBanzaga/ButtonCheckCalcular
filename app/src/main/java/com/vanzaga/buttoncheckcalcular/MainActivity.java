@@ -4,39 +4,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
 import androidx.core.text.HtmlCompat;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private EditText etNum1, etNum2;
     private TextView tvResultado;
-    private CheckBox rbSuma, rbResta;
+    private CheckBox cbSuma, cbResta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        /*ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });*/
 
         etNum1 = findViewById(R.id.txt_num1);
         etNum2 = findViewById(R.id.txt_num2);
         tvResultado = findViewById(R.id.textView_resultado);
-        rbSuma = findViewById(R.id.checkBox_suma);
-        rbResta = findViewById(R.id.checkBox_resta);
+        cbSuma = findViewById(R.id.checkBox_suma);
+        cbResta = findViewById(R.id.checkBox_resta);
     }
 
     public void calcular(View view) {
@@ -49,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
             double n1 = Double.parseDouble(num1);
             double n2 = Double.parseDouble(num2);
 
-            if (rbSuma.isChecked()) {
+            if (cbSuma.isChecked() && cbResta.isChecked()) {
+                opcion = 3;
+            } else if (cbSuma.isChecked()) {
                 opcion = 1;
-            } else if (rbResta.isChecked()) {
+            } else if (cbResta.isChecked()) {
                 opcion = 2;
             }
 
@@ -63,11 +53,18 @@ public class MainActivity extends AppCompatActivity {
 
                 case 2:
                     double resta = n1 - n2;
+                    if (n2 > n1) {
+                        resta = n2 - n1;
+                    }
                     resultado = String.format("%.2f", resta);
                     break;
 
+                case 3:
+                    resultado = "1 sola opción SUMAR o RESTAR";
+                    break;
+
                 default:
-                    resultado = "Selecciona una opción";
+                    resultado = "Selecciona una opción SUMAR o RESTAR";
                     break;
             }
             tvResultado.setText(resultado);
