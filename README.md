@@ -15,4 +15,9 @@
 </ol>
 
 <br>
+<p>Checkbox: 
+◦Se representa como un pequeño cuadrado en la interfaz. 
+◦Tiene dos estados: marcado o no marcado. True o False. 
+◦Cada checkbox u opción es independiente del resto de opciones de la 
+lista, por lo que marcar una opción no desmarca o excluye las demás. </p>
 <br>
